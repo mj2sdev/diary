@@ -1,1 +1,4 @@
+ezen/teamd/model/Board.class
+ezen/teamd/dao/BoardDAO.class
+ezen/teamd/dao/BoardDAOImpl.class
 ezen/teamd/controller/HomeController.class

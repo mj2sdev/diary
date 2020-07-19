@@ -30,7 +30,7 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
-    <mybatis-spring:scan base-package="ezen.teamd.board.repository" />
+    <mybatis-spring:scan base-package="ezen.teamd.dao"/>
 
     <context:component-scan base-package="ezen.teamd"/>
 

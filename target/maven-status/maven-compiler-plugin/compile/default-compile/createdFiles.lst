@@ -1,6 +1,0 @@
-ezen\teamd\web\dao\BoardDAO.class
-ezen\teamd\web\dao\BoardDAOImpl.class
-ezen\teamd\web\model\BoardVO.class
-ezen\teamd\web\service\BoardService.class
-ezen\teamd\web\service\BoardServiceImpl.class
-ezen\teamd\web\controller\HomeController.class

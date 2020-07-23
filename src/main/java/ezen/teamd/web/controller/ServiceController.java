@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ezen.teamd.web.model.AccountVO;
+import ezen.teamd.web.model.ScheduleVO;
 import ezen.teamd.web.service.AccountService;
 
 
@@ -32,7 +33,8 @@ public class ServiceController {
     public String login(Model model, AccountVO account, HttpSession session) throws Exception {
         if(accountService.login(account, session)) {
             // 로그인 성공 실제페이지는 dlwlrma
-            return "redirect:test";
+            return "redirect:dlwlrma";
+
         } else {
             // 로그인 실패
             model.addAttribute("message", "로그인에 실패했습니다.");
@@ -43,6 +45,12 @@ public class ServiceController {
     @RequestMapping(value="/test")
     public String Test(Model model, HttpSession session) {
         model.addAttribute("test", session.getAttribute("Account"));
+        return "test";
+    }
+
+    @RequestMapping(value="/schedule", method=RequestMethod.POST)
+    public String schedule(Model model, ScheduleVO schedule) {
+        service.
         return "test";
     }
 }

@@ -20,4 +20,9 @@ public class ViewController {
     public String Signup(Model model) throws Exception {
         return "signup";
     }
+
+    @RequestMapping(value="/dlwlrma", method=RequestMethod.GET)
+    public String dlwlrma(Model model) throws Exception {
+        return "dlwlrma";
+    }
 }

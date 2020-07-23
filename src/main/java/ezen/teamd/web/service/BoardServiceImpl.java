@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ezen.teamd.web.dao.BoardDAO;
 import ezen.teamd.web.model.BoardVO;
 
-@Service("boardService")
+@Service
 public class BoardServiceImpl implements BoardService{
     
     @Autowired

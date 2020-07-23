@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
@@ -16,12 +17,12 @@
             height: 100%;
         }
         .wrapper {
-            width: 70rem !important;
+            width: 80rem !important;
             box-shadow: 0 0 15px 5px #ddd;
         }
         
         .six.wide {
-            height: 40rem;
+            height: 45rem;
         }
         .pt {
             position: absolute;
@@ -47,6 +48,9 @@
         .blue {
             background:#01509e;
         }
+        .description {
+            padding: 0 3rem !important;
+        }
     </style>
     <script src="/resources/js/home.js"></script>
 </head>
@@ -56,8 +60,8 @@
             <div class="ui middle aligned grid">
                 <div class="six wide blue column">
                     <div class="ui middle aligned center aligned grid">
-                        <div class="column">
-                            <h3>이지금</h3>
+                        <div class="column description">
+                            <h1>이지금</h1>
                             <p>하루 중 지금 이순간, 스쳐는 지금을 추억으로 만들어 주고, 일정관리 및 오늘 하루를 정리할 수 있는 다이어리</p>
                             <div class="pt">
                                 <i class="envira big icon"></i>
@@ -79,13 +83,13 @@
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="envelope icon"></i>
-                                            <input type="text" name="email" placeholder="E-mail address">
+                                            <input type="text" name="email" placeholder="이메일 주소">
                                         </div>
                                     </div>
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="lock icon"></i>
-                                            <input type="password" name="pass" placeholder="Password">
+                                            <input type="password" name="pass" placeholder="비밀번호">
                                         </div>
                                     </div>
                                     <button class="ui blue fluid circular button">로그인</button>

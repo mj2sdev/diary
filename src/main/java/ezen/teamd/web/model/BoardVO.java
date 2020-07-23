@@ -3,6 +3,7 @@ package ezen.teamd.web.model;
 import lombok.Data;
 
 @Data
+@SuppressWarnings("unused")
 public class BoardVO {
     private int bid;
     private String cate_cd;

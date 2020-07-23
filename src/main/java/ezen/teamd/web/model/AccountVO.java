@@ -3,6 +3,7 @@ package ezen.teamd.web.model;
 import lombok.Data;
 
 @Data
+@SuppressWarnings("unused")
 public class AccountVO {
     private String accountid;
     private String email;

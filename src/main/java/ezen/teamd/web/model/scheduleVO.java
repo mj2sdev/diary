@@ -3,6 +3,7 @@ package ezen.teamd.web.model;
 import lombok.Data;
 
 @Data
+@SuppressWarnings("unused")
 public class scheduleVO {
     private int scheduleid;
     private String title;

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
 
     <!-- Semantic ui library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
@@ -16,12 +17,12 @@
             height: 100%;
         }
         .wrapper {
-            width: 70rem !important;
+            width: 80rem !important;
             box-shadow: 0 0 15px 5px #ddd;
         }
         
         .six.wide {
-            height: 40rem;
+            height: 45rem;
         }
         .pt {
             position: absolute;
@@ -37,8 +38,7 @@
             justify-content: center;
         }
         .form {
-            margin-left: 20%;
-            width: 60%;
+            margin: 0 3rem;
         }
         input {
             border-radius: 10rem !important;
@@ -46,12 +46,77 @@
         .blue {
             background:#01509e;
         }
+        .description {
+            padding: 0 3rem !important;
+        }
     </style>
     <script>
         $(document).ready(function() {
-            $("input").click(function(event) {
+            $("input").focus(function(event) {
                 $("#title").html($(this).attr("placeholder"));
                 $("#desc").html($(this).attr("description"));
+            });
+            $('.ui.form').form({
+                inline : true,
+                fields: {
+                    email: {
+                        identifier  : 'email',
+                        rules: [
+                            // {
+                            //     type   : 'empty',
+                            //     prompt : '이메일을입력해 주세요.'
+                            // },
+                            {
+                                type   : 'email',
+                                prompt : '유효한 이메일을 입력하세요.'
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier: 'pass',
+                        rules: [
+                            // {
+                            //     type   : 'empty',
+                            //     prompt : '비밀번호를 입력하세요.'
+                            // },
+                            {
+                                type   : 'length[6]',
+                                prompt : '비밀번호는 6자 이상입니다.'
+                            }
+                        ]
+                    },
+                    pass2: {
+                        identifier: 'pass2',
+                        rules: [
+                            {
+                                type: 'match[pass]',
+                                prompt: '비밀번호가 일치하지 않습니다.'
+                            }
+                        ]
+                    },
+                    nick: {
+                        identifier: 'nick',
+                        rules: [
+                            {
+                                type: 'length[2]',
+                                prompt: '닉네임의 길이는 최소 2글자 입니다.'
+                            },
+                            {
+                                type: 'maxLength[10]',
+                                prompt: '닉네임의 길이는 최대 10글자 입니다.'
+                            }
+                        ]
+                    },
+                    birthday: {
+                        identifier: 'birthday',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: '생일을 입력해 주세요'
+                            }
+                        ]
+                    }
+                }
             });
         });
     </script>
@@ -62,8 +127,8 @@
             <div class="ui middle aligned grid">
                 <div class="six wide blue column">
                     <div class="ui middle aligned center aligned grid">
-                        <div class="column">
-                            <h3 id="title">이지금</h3>
+                        <div class="column description">
+                            <h1 id="title">이지금</h1>
                             <p id="desc">하루 중 지금 이순간, 스쳐는 지금을 추억으로 만들어 주고, 일정관리 및 오늘 하루를 정리할 수 있는 다이어리</p>
                             <div class="pt">
                                 <i class="envira big icon"></i>
@@ -80,36 +145,40 @@
                                     회원가입
                                 </div>
                             </h2>
-                            <form class="ui large form" method="POST" action="/login">
+                            <form class="ui large form" method="POST" action="/signup">
                                 <div class="ui vertical segment">
                                     <div class="field">
                                         <div class="ui left icon input">
                                             <i class="envelope icon"></i>
-                                            <input type="text" name="email" placeholder="이메일 주소" description="이메일 주소를 입력합니다. 확인 메일이 발송되오니 유효한 이메일을 입력해 주세요.">
+                                            <input type="text" name="email" placeholder="이메일 주소" description="이메일 주소를 입력합니다. <br>확인 메일이 발송되오니 <br>유효한 이메일을 입력해 주세요.">
                                         </div>
                                     </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="lock icon"></i>
-                                            <input type="password" name="pass" placeholder="비밀번호" description="로그인에 필요한 비밀번호를 설정합니다. 최소6자리 이상 입력해야 합니다.">
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="lock icon"></i>
+                                                <input type="password" name="pass" placeholder="비밀번호" description="로그인에 필요한 비밀번호를 설정합니다. <br>최소6자리 이상 입력해야 합니다.">
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="lock icon"></i>
+                                                <input type="password" name="pass2" placeholder="비밀번호 확인" description="최초에 입력한 로그인과 일치하도록 입력합니다.">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="lock icon"></i>
-                                            <input type="password" name="pass2" placeholder="비밀번호 확인" description="최초에 입력한 로그인과 일치하도록 입력합니다.">
+                                    <div class="two fields">
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="address card icon"></i>
+                                                <input type="text" name="nick" placeholder="닉네임" description="활동시에 나를 표현하는 닉네임 입니다.">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="address card icon"></i>
-                                            <input type="text" name="nick" placeholder="닉네임" description="활동시에 노출되는 나를 표현하는 닉네임 입니다.">
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <div class="ui left icon input">
-                                            <i class="birthday cake icon"></i>
-                                            <input type="date" name="birthday" placeholder="생년월일" description="사용자의 생일입니다. 다이어리에 표시될 수도 있습니다.">
+                                        <div class="field">
+                                            <div class="ui left icon input">
+                                                <i class="birthday cake icon"></i>
+                                                <input type="date" name="birthday" placeholder="생년월일" description="사용자의 생일입니다.<br> 다이어리에 표시될 수도 있습니다.">
+                                            </div>
                                         </div>
                                     </div>
                                     <button class="ui blue fluid circular button">회원가입</button>

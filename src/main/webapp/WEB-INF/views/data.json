@@ -1,0 +1,62 @@
+[{
+    "_id": 1,
+    "title": "거래처 미팅",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-19T09:30",
+    "end": "2020-07-20T15:00",
+    "type": "카테고리1",
+    "backgroundColor": "#D25565",
+    "textColor": "#ffffff",
+    "allDay": false
+  }, {
+    "_id": 2,
+    "title": "치과예약",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-19T12:30",
+    "end": "2020-07-19T15:30",
+    "type": "카테고리1",
+    "backgroundColor": "#9775fa",
+    "textColor": "#ffffff",
+    "allDay": false
+  }, {
+    "_id": 3,
+    "title": "철수 생일",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-21",
+    "end": "2020-07-21",
+    "type": "카테고리2",
+    "backgroundColor": "#ffa94d",
+    "textColor": "#ffffff",
+    "allDay": true
+  }, {
+    "_id": 5,
+    "title": "청약 입금",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-31",
+    "end": "2020-07-31",
+    "type": "카테고리3",
+    "backgroundColor": "#f06595",
+    "textColor": "#ffffff",
+    "allDay": true
+  }, {
+    "_id": 6,
+    "title": "프로젝트 마감",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-24",
+    "end": "2020-07-24T16:00",
+    "type": "중요",
+    "backgroundColor": "#f06595",
+    "textColor": "#ffffff",
+    "allDay": false
+  }, {
+    "_id": 6,
+    "title": "어디서 받는거쥬",
+    "description": "Lorem ipsum dolor sit incid idunt ut Lorem ipsum sit.",
+    "start": "2020-07-25",
+    "end": "2020-07-25",
+    "type": "기념일",
+    "backgroundColor": "#f06595",
+    "textColor": "#ffffff",
+    "allDay": true
+  }
+]

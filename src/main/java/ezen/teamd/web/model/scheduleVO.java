@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 @SuppressWarnings("unused")
-public class scheduleVO {
-    private int scheduleid;
+public class ScheduleVO {
+    private String scheduleid;
     private String title;
     private String description;
     private String start;

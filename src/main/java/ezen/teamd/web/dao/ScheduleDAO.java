@@ -1,12 +1,19 @@
 package ezen.teamd.web.dao;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
+
+import java.util.*;
 
 import ezen.teamd.web.model.ScheduleVO;
+import ezen.teamd.web.model.AccountVO;
 
 public interface ScheduleDAO {
 
-    public List<ScheduleVO> ViewSchedule(HttpSession session) throws Exception;
+    public List<Map<String,Object>> loadSchedule(AccountVO account) throws Exception;
 
-    public boolean SaveSchedule(ScheduleVO schedule, AccountVO account) throws Exception;
+    public boolean saveSchedule(ScheduleVO schedule, AccountVO account) throws Exception;
+
+    public boolean modifySchedule(ScheduleVO schedule, AccountVO account) throws Exception;
+
+    public boolean deleteSchedule(ScheduleVO schedule) throws Exception;
 }

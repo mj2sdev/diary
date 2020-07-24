@@ -166,8 +166,8 @@ var calendar = $('#calendar').fullCalendar({
    * ************** */
   events: function (start, end, timezone, callback) {
     $.ajax({
-      type: "get",
-      url: "data.json",
+      type: "POST",
+      url: "/dlwlrma",
       data: {
         // 실제 사용시, 날짜를 전달해 일정기간 데이터만 받아오기를 권장
       },
@@ -232,16 +232,24 @@ var calendar = $('#calendar').fullCalendar({
 
     // 드랍시 수정된 날짜반영
     var newDates = calDateWhenDragnDrop(event);
+    event.start = newDates.startDate;
+    event.end   = newDates.endDate;
+    
+    delete event.className;
+    delete event.source;
+    delete event._id;
 
+    var modifyData = Object.entries(event).map(e => e.join('=')).join('&');
+    // modifyData = modifyData.replace('\[','').replace('\]','').replace(' ','');
     //드롭한 일정 업데이트
     $.ajax({
-      type: "get",
-      url: "",
-      data: {
-        //...
-      },
+      type: "POST",
+      url: "/modify",
+      data: modifyData,
       success: function (response) {
-        //alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
+        // alert('수정: ' + newDates.startDate + ' ~ ' + newDates.endDate);
+        // if (response) alert("수정되었습니다.");
+        // else alert("수정에 실패했습니다.");
       }
     });
 

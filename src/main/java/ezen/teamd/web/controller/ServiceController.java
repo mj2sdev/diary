@@ -7,10 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import ezen.teamd.web.model.AccountVO;
 import ezen.teamd.web.model.ScheduleVO;
 import ezen.teamd.web.service.AccountService;
+import ezen.teamd.web.service.ScheduleService;
+
+import java.util.*;
 
 
 @Controller
@@ -18,6 +22,9 @@ public class ServiceController {
     
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private ScheduleService scheduleService;
 
     @RequestMapping(value="/signup", method=RequestMethod.POST)
     public String Write(Model model, AccountVO account) throws Exception {
@@ -48,9 +55,29 @@ public class ServiceController {
         return "test";
     }
 
+    @ResponseBody
     @RequestMapping(value="/schedule", method=RequestMethod.POST)
-    public String schedule(Model model, ScheduleVO schedule) {
-        service.
-        return "test";
+    public String schedule(Model model, ScheduleVO schedule, HttpSession session) throws Exception {
+        return scheduleService.saveSchedule(schedule, session);
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/dlwlrma", method=RequestMethod.POST)
+    public List<Map<String,Object>> getSchedule(HttpSession session) throws Exception {
+        return scheduleService.loadSchedule(session);
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/modify", method=RequestMethod.POST)
+    public boolean modifySchedule(Model model, ScheduleVO schedule, HttpSession session) throws Exception {
+        scheduleService.modifySchedule(schedule, session);
+        return true;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/delete", method=RequestMethod.POST)
+    public boolean deleteSchedule(Model model, ScheduleVO schedule) throws Exception {
+        scheduleService.deleteSchedule(schedule);
+        return true;
     }
 }

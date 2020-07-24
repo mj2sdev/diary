@@ -6,7 +6,7 @@ var editTitle = $('#title');
 var editStart = $('#start');
 var editEnd = $('#end');
 var editType = $('#type');
-var editColor = $('#color');
+var editColor = $('#backgroundColor');
 var editDesc = $('#description');
 
 var addBtnContainer = $('.modalBtnContainer-addEvent');
@@ -31,14 +31,11 @@ var newEvent = function (start, end, eventType) {
     modifyBtnContainer.hide();
     eventModal.modal('show');
 
-    /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
     var eventId = 1 + Math.floor(Math.random() * 1000);
-    /******** 임시 RAMDON ID - 실제 DB 연동시 삭제 **********/
 
     //새로운 일정 저장버튼 클릭
     $('#Eventwrite').unbind();
     $('#Eventwrite').on('click', function () {
-
         var eventData = {
             _id: eventId,
             title: editTitle.val(),
@@ -80,11 +77,13 @@ var newEvent = function (start, end, eventType) {
 
         //새로운 일정 저장
         $.ajax({
-            type: "post",
-            //url: "http://192.168.0.54:8080/write",
-            url : "dlwlrma.jsp",
+            type: "POST",
+            url: "/schedule",
+            // url : "dlwlrma.jsp",
             data : jtoq(eventData),
             success: function (response) {
+                if (response !== undefined) alert("저장되었습니다");
+                eventData._id = response;
                 //console.log(jtoq(eventData));
                 //DB연동시 중복이벤트 방지를 위한
                 //$('#calendar').fullCalendar('removeEvents');
@@ -95,7 +94,7 @@ var newEvent = function (start, end, eventType) {
 };
 
 //제이슨을 쿼리스트링으로
-jtoq = function(obj){
+var jtoq = function(obj){
     var str = [];
     for(var p in obj)
         if(obj.hasOwnProperty(p)){

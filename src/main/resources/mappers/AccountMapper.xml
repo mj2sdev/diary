@@ -17,7 +17,7 @@
 	
 	<select id="login" parameterType="ezen.teamd.web.model.AccountVO" resultType="ezen.teamd.web.model.AccountVO">
 		SELECT
-			Email, Nick, BirthDay
+			AccountID, Email, Nick, BirthDay
 		FROM
 			Account
 		WHERE

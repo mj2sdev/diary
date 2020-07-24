@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <style>
+        @font-face{
+            font-family: "2hour";
+            src : url("/resources/vendor/fonts/2hour.ttf");
+        }
+        
+        p{
+            font-size : 20px;
+            font-family : "2hour";
+        }
+
         .grid {
             height: 100%;
         }
@@ -48,6 +58,10 @@
         }
         .description {
             padding: 0 3rem !important;
+        }
+        input::placeholder
+        {
+            font-family : '2hour';
         }
     </style>
     <script>
@@ -128,8 +142,8 @@
                 <div class="six wide blue column">
                     <div class="ui middle aligned center aligned grid">
                         <div class="column description">
-                            <h1 id="title">이지금</h1>
-                            <p id="desc">하루 중 지금 이순간, 스쳐는 지금을 추억으로 만들어 주고, 일정관리 및 오늘 하루를 정리할 수 있는 다이어리</p>
+                            <h1 id="title" style="font-family : '2hour'; font-size: 40px;">이지금</h1>
+                            <p id="desc">하루 중 지금 이순간을 정리하는 다이어리</p>
                             <div class="pt">
                                 <i class="envira big icon"></i>
                             </div>
@@ -141,7 +155,7 @@
                         <div class="column">
                             <h2 class="ui blue image header">
                                 <!-- <img src="assets/images/logo.png" class="image"> -->
-                                <div class="content">
+                                <div class="content" style="font-family : '2hour'; font-size: 30px;">
                                     회원가입
                                 </div>
                             </h2>
@@ -181,11 +195,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button class="ui blue fluid circular button">회원가입</button>
+                                    <button class="ui blue fluid circular button" style="font-family : '2hour'; font-size:18px;">회원가입</button>
                                 </div>
                                 <div class="ui error message"></div>
                                 <div class="ui message">
-                                    홈페이지로 <a href="/">돌아가기</a><br>
+                                    홈페이지로 <a href="/" style="font-family : '2hour'; font-size:18px;">돌아가기</a><br>
                                     <%-- <a href="/">홈페이지</a>로 돌아가기 --%>
                                 </div>
                             </form>

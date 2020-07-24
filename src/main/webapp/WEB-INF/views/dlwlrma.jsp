@@ -32,10 +32,10 @@
                 <span class="glyphicon glyphicon-user"></span>
             </button>
             <div id="info" class="collapse">
-                <div class="col-md-4 information text-center" id="email" name="email">이메일</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">이메일</div>
-                <div class="col-md-4 information text-center" id="nick" name="nick">닉네임</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">닉네임</div>
-                <div class="col-md-4 information text-center" id="birthday" name="birthday">생일</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">생일</div>
-                <div class="col-md-4 col-md-offset-8 text-center"><a>로그아웃</a></div>
+                <div class="col-md-4 information text-center" id="email" name="email">이메일</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">${Account.email}</div>
+                <div class="col-md-4 information text-center" id="nick" name="nick">닉네임</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">${Account.nick}</div>
+                <div class="col-md-4 information text-center" id="birthday" name="birthday">생일</div><div class="col-md-1 colon">:</div><div class="col-md-7 data">${Account.birthday}</div>
+                <div class="col-md-4 col-md-offset-8 text-center"><a href="/logout">로그아웃</a></div>
             </div>
         </div>
         <div class="col-md-10" id="wrapper">
@@ -89,8 +89,8 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <label class="col-xs-4" for="color">색상</label>
-                                <select class="inputModal" name="color" id="color">
+                                <label class="col-xs-4" for="backgroundColor">색상</label>
+                                <select class="inputModal" name="backgroundColor" id="backgroundColor">
                                     <option value="#D25565" style="color:#D25565;">빨간색</option>
                                     <option value="#9775fa" style="color:#9775fa;">보라색</option>
                                     <option value="#ffa94d" style="color:#ffa94d;">주황색</option>
@@ -122,6 +122,7 @@
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        <div class="background"></div>
     </div>
     <!-- /.container -->
     <script src="/resources/vendor/js/jquery.min.js"></script>

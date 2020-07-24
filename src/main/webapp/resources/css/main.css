@@ -1,6 +1,19 @@
 body {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-  padding: 30px;
+  margin-top : 9%;
+  margin-right : 5%
+  /* padding: 30px; */
+}
+
+.background {
+  position : absolute;
+  top : 13rem;
+  width : 130rem;
+  height : 90rem;
+}
+
+.fc-view-container {
+  box-shadow: 5px 5px 3px #eee;
 }
 
 /* 정보 */
@@ -334,6 +347,6 @@ body {
 }
 
 #add-color,
-#color {
+#backgroundColor {
   color: #d25565;
 }

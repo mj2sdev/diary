@@ -12,8 +12,7 @@ public class ViewController {
 
     @RequestMapping("/")
     public String Hello(Model model, HttpSession session) throws Exception {
-        session.setAttribute("id", "bh");
-        return "home";
+        return session.getAttribute("Account") == null ? "home" : "dlwlrma";
     }
 
     @RequestMapping(value="/signup", method=RequestMethod.GET)
@@ -22,7 +21,17 @@ public class ViewController {
     }
 
     @RequestMapping(value="/dlwlrma", method=RequestMethod.GET)
-    public String dlwlrma(Model model) throws Exception {
-        return "dlwlrma";
+    public String dlwlrma(Model model, HttpSession session) throws Exception {
+        model.addAttribute("message", "로그인 후 접속하세요");
+        model.addAttribute("link", "/");
+        return session.getAttribute("Account") != null ? "dlwlrma" : "message";
+    }
+
+    @RequestMapping(value="/logout", method=RequestMethod.GET)
+    public String logout(Model model, HttpSession session) throws Exception {
+        session.invalidate();
+        model.addAttribute("message", "로그아웃 되었습니다.");
+        model.addAttribute("link", "/");
+        return "message";
     }
 }

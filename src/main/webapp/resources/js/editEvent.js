@@ -3,6 +3,7 @@
  * ************** */
 var editEvent = function (event, element, view) {
 
+    $('#deleteEvent').data('accountid', event.scheduleid);
     $('#deleteEvent').data('id', event._id); //클릭한 이벤트 ID
 
     $('.popover.fade.top').remove();
@@ -77,16 +78,15 @@ var editEvent = function (event, element, view) {
         event.description = editDesc.val();
 
         $("#calendar").fullCalendar('updateEvent', event);
-
+        var modifyData = Object.entries(event).map(e => e.join('=')).join('&');
         //일정 업데이트
         $.ajax({
-            type: "get",
-            url: "",
-            data: {
-                //...
-            },
+            type: "POST",
+            url: "/modify",
+            data: modifyData,
             success: function (response) {
-                alert('수정되었습니다.')
+                if (response) alert("수정되었습니다.");
+                else alert("수정에 실패했습니다.");
             }
         });
 
@@ -96,19 +96,20 @@ var editEvent = function (event, element, view) {
 // 삭제버튼
 $('#deleteEvent').unbind();
 $('#deleteEvent').on('click', function () {
-    
     $("#calendar").fullCalendar('removeEvents', $(this).data('id'));
     eventModal.modal('hide');
 
+
     //삭제시
     $.ajax({
-        type: "get",
-        url: "",
-        data: {
+        type: "POST",
+        url: "/delete",
+        data: { scheduleid:$('#deleteEvent').data('accountid')
             //...
         },
         success: function (response) {
-            alert('삭제되었습니다.');
+            if (response) alert('삭제되었습니다.');
+            else alert('삭제에 실패했습니다.');
         }
     });
 

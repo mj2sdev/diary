@@ -3,19 +3,54 @@
 
 <mapper namespace="ezen.teamd.web.sql.ScheduleMapper">
 
-    <insert id="save" parameterType="hashmap">
+	<delete id="delete" parameterType="ezen.teamd.web.model.ScheduleVO">
+		DELETE FROM 
+			schedule
+		WHERE
+			scheduleid = #{scheduleid}
+	</delete>
+
+    <insert id="save" parameterType="java.util.HashMap">
         INSERT INTO schedule
-            (SUUID, title, startDay, endDay, category, comment, dayAll)
+            (Accountid, scheduleid, title, description, start, end, type, backgroundColor, fontColor, allday)
         VALUES (
-            UUID(),
-            #{},
-            #{},
-            #{},
-            #{},
-            #{},
-            #{}
+			#{accountid},
+            #{scheduleid},
+            #{title},
+            #{description},
+            #{start},
+            #{end},
+            #{type},
+            #{backgroundColor},
+			#{fontcolor},
+			#{allday}
         )
     </insert>
+
+	<update id="modify" parameterType="java.util.HashMap">
+		UPDATE 
+			Schedule
+		SET
+			title=#{title}, 
+			description=#{description}, 
+			start=#{start}, 
+			end=#{end}, 
+			type=#{type}, 
+			backgroundColor=#{backgroundColor}, 
+			fontColor=#{fontColor}, 
+			allday=#{allday}
+		WHERE
+			scheduleid=#{scheduleid}
+	</update>
+
+	<select id="load" resultType="java.util.HashMap" parameterType="ezen.teamd.web.model.AccountVO">
+		SELECT
+			*
+		FROM
+			Schedule
+		WHERE
+			Accountid = #{accountid}
+	</select>
     <!-- <insert id="signup" parameterType="ezen.teamd.web.model.AccountVO">
         INSERT INTO Account
             (AccountID, Email, Pass, Nick, BirthDay)
